@@ -36,6 +36,6 @@ Programar la funcionalidad que permita registrar un participante a un taller. Lo
 
 También se programará la funcionalidad que permita seleccionar un taller y mostrar un listado de todos los participantes que se han registrado y el número de lugares que aún quedan disponibles.
 
-### 3er. Entregable (1K: 9 May, 1J 15∫ May)
+### 3er. Entregable (1K: 9 May, 1J 15 May)
 
 Programar la funcionalidad que permita eliminar un participante de un taller. También, programar la funcionalidad que permita eliminar un taller. Los talleres solamente pueden eliminarse cuando no tienen registrado a ningún participante
