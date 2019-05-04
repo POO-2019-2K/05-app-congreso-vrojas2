@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Inscripciones</title>
+    <title>Registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -16,41 +16,49 @@
   <body>
     <div class="jumbotron">
       <h1>Registro</h1>
-      <p>Registro de inscripciones de alumnos a un curso</p>
     </div>
+    <div class="col-6">
+      <p>Talleres</p>
+    </div>
+    <div class="col-6">
+        <p>Participantes</p>
+      </div>
     <div class="container-fluid">
       <div class="row">
-        <!-- Formulario -->
+        <!-- Formulario talleres-->
         <div class="col-md-4 mb-5">
           <div class="row">
-              </form>
-              <form id="form" class="col-12 needs-validation" novalidate>
-                <div class="form-group">
-                    <label for="tallerName">Nombre del taller</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="tallerName"
-                        placeholder="Avengers"
-                        required
-                        />
-                    <div class="valid-feedback">Correcto</div>
-                    <div class="invalid-feedback">Incorrecto</div>
-                </div>
-                <div class="form-group">
-                    <div class="col-6">
-                    <label for="initDate">Fecha de inicio</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="initDate"
-                    required
+            <form id="form" class="col-1 needs-validation" novalidate></form>
+            <form id="form" class="col-11 needs-validation" novalidate>
+              <div class="form-group">
+                <label for="tallerName">Nombre del taller</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tallerName"
+                  placeholder="Avengers"
+                  required
                   />
-                  <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">Incorrecto</div>
-                </div>
-                </div>
-                <div class="form-group">
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Incorrecto</div>
+              </div>
+            </form>
+            <form id="form" class="col-1 needs-validation" novalidate></form>
+            <form id="form" class="col-6 needs-validation" novalidate>
+              <div class="form-group">
+                <label for="initDate">Fecha de inicio</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="initDate"
+                  required
+                  />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Incorrecto</div>
+              </div>
+            </form>
+            <form id="form" class="col-5 needs-validation" novalidate>
+              <div class="form-group">
                   <label for="finDate">Fecha de término</label>
                   <input
                     type="date"
@@ -61,6 +69,9 @@
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
+              </form>
+              <form id="form" class="col-1 needs-validation" novalidate></form>
+              <form id="form" class="col-11 needs-validation" novalidate>
                 <div class="form-group">
                   <label for="placesDis">Lugares disponibles</label>
                   <input
@@ -74,34 +85,111 @@
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
                 <div class="form-group">
-                  <label for="duracionTa">Duración en minutos</label>
+                  <label for="duracionTa">Duración en horas</label>
                   <input
                     type="number"
                     class="form-control"
                     id="duracionTa"
-                    placeholder="45 min"
+                    placeholder="45 hrs"
                     required
                   />
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
-                <button id="btnAdd" type="button" class="btn btn-primary">
+                <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 100%">
                   Agregar
                 </button>
               </form>
-            
           </div>
-          
-
         </div>
-        <!-- Tabla -->
+        <!-- Tabla talleres -->
         <div class="col-md-8">
           <table id="Inscribir" class="table">
             <thead>
               <tr>
-                <th>Número de Cuenta</th>
+                <th>Nombre del taller</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de término</th>
+                <th>Lugares disponibles</th>
+                <th>Duración</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Row -->
+    </div>
+    <!-- Container -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Formulario Participantes-->
+        <div class="col-md-4 mb-5">
+          <div class="row">
+              <form id="form" class="col-1 needs-validation" novalidate></form>
+            <form id="form" class="col-11 needs-validation" novalidate>
+              <div class="form-group">
+                <label for="partName">Nombre:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tallerName"
+                  placeholder="Avengers"
+                  required
+                  />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Incorrecto</div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="juanperez@gmail.com"
+                  required
+                  />
+                <div class="valid-feedback">Correcto</div>
+                <div class="invalid-feedback">Incorrecto</div>
+              </div>
+              <div class="form-group">
+                  <label for="birthday">Fecha de nacimiento</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="birthday"
+                    required
+                  />
+                  <div class="valid-feedback">Correcto</div>
+                  <div class="invalid-feedback">Incorrecto</div>
+                </div>
+                <div class="form-group">
+                  <label for="tallerName">Taller</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tallerName"
+                    placeholder="Avengers"
+                    required
+                  />
+                  <div class="valid-feedback">Correcto</div>
+                  <div class="invalid-feedback">Incorrecto</div>
+                </div>
+                <button id="btnAddPar" type="button" class="btn btn-primary" style="width: 100%">
+                  Agregar
+                </button>
+              </form>
+          </div>
+        </div>
+        <!-- Tabla talleres -->
+        <div class="col-md-8">
+          <table id="Inscribir" class="table">
+            <thead>
+              <tr>
                 <th>Nombre</th>
-                <th>Asistencias</th>
+                <th>Correo electrónico</th>
+                <th>Fecha de nacimiento</th>
+                <th>Taller</th>
               </tr>
             </thead>
             <tbody></tbody>
