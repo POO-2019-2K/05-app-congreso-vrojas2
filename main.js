@@ -10,9 +10,20 @@ class Main {
 
             if(form.checkValidity() === true) {
                 let tallerName = document.querySelector("#tallerName").value;
+                let sInitDate = document.querySelector("#initDate").value;
+                let sFinDate = document.querySelector("#finDate").value;
+                
+                sInitDate = sInitDate.split("-");
+                sFinDate = sFinDate.split("-");
+
+                let initDate = new Date(sInitDate[0], sInitDate[1]-1, sInitDate[2]);
+                let finDate = new Date(sFinDate[0], sFinDate[1]-1, sFinDate[2]);
+
 
                 let objTaller = {
                     tallerName: tallerName,
+                    initDate: initDate,
+                    finDate: finDate,
                 };
 
                 let taller = new Taller(objTaller);

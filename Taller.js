@@ -5,6 +5,20 @@ export default class Taller {
       this._finDate = taller.finDate;
       this._placesDis = taller.placesDis;
       this._duracionTa = taller.duracionTa;
+      this._months = [
+        "Ene",
+        "Feb",
+        "Mar",
+        "Abr",
+        "May",
+        "Jun",
+        "Jul",
+        "Ago",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dic"
+      ];
 
     }
   
@@ -27,5 +41,26 @@ export default class Taller {
     get duracionTa() {
       return this._duracionTa;
     }
-   
+
+    getInitDate() {
+      let date =
+        this._initDate.getDate() +
+        "/" +
+        this._months[this._initDate.getMonth()] +
+        "/" +
+        this._initDate.getFullYear();
+  
+      return date;
+    }
+
+    getFinDate() {
+      let date =
+        this._finDate.getDate() +
+        "/" +
+        this._months[this._finDate.getMonth()] +
+        "/" +
+        this._finDate.getFullYear();
+  
+      return date;
+    }
 }

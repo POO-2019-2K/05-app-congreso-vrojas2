@@ -4,7 +4,7 @@ export default class Registros {
   constructor(tableregisTaller) {
     this._tableregisTaller = tableregisTaller;
     this._talleres = [];
-    //localStorage.removeItem(_talleres);  
+    //localStorage.removeItem("talleres");
     this._initTables();
   }
 
@@ -14,8 +14,8 @@ export default class Registros {
             return;
         }
         lsTalleres.forEach((e, index) => {
-        //taller.birthday = new Date(taller.birthday);
-        //taller.dateContratacion = new Date(taller.dateContratacion);
+        taller.initDate = new Date(taller.initDate);
+        taller.finDate = new Date(taller.finDate);
         this._showInTable(new Taller(e));
 
         });
@@ -25,11 +25,17 @@ export default class Registros {
         let row = this._tableregisTaller.insertRow(-1);
 
         let cellTallerName = row.insertCell(0);
+        let cellInitDate = row.insertCell(1);
+        let cellFinDate = row.insertCell(2);
         
         cellTallerName.innerHTML = taller.tallerName;
+        cellInitDate.innerHTML = taller.getInitDate();
+        cellFinDate.innerHTML = taller.getFinDate();
 
         let objTaller = {
-            tallerName: tallerName,
+            tallerName: taller.tallerName,
+            initDate: taller.initDate,
+            fechaTermino: taller.fechaTermino
         }
 
         this._talleres.push(objTaller);
