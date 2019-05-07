@@ -16,7 +16,7 @@ export default class Registros {
         lsTalleres.forEach((e, index) => {
         taller.initDate = new Date(taller.initDate);
         taller.finDate = new Date(taller.finDate);
-        this._showInTable(new Taller(e));
+        this._showInTable(new Taller(taller));
 
         });
     }
@@ -27,15 +27,21 @@ export default class Registros {
         let cellTallerName = row.insertCell(0);
         let cellInitDate = row.insertCell(1);
         let cellFinDate = row.insertCell(2);
+        let cellPlacesDis = row.insertCell(3);
+        let cellDuracionTa = row.insertCell(4);
         
         cellTallerName.innerHTML = taller.tallerName;
         cellInitDate.innerHTML = taller.getInitDate();
         cellFinDate.innerHTML = taller.getFinDate();
+        cellPlacesDis.innerHTML = taller.placesDis;
+        cellDuracionTa.innerHTML = taller.duracionTa;
 
         let objTaller = {
             tallerName: taller.tallerName,
             initDate: taller.initDate,
-            fechaTermino: taller.fechaTermino
+            finDate: taller.finDate,
+            placesDis: taller.placesDis,
+            duracionTa: taller.duracionTa
         }
 
         this._talleres.push(objTaller);

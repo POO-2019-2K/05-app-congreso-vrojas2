@@ -12,6 +12,8 @@ class Main {
                 let tallerName = document.querySelector("#tallerName").value;
                 let sInitDate = document.querySelector("#initDate").value;
                 let sFinDate = document.querySelector("#finDate").value;
+                let placesDis = document.querySelector("#placesDis").value;
+                let duracionTa = document.querySelector("#duracionTa").value;
                 
                 sInitDate = sInitDate.split("-");
                 sFinDate = sFinDate.split("-");
@@ -24,6 +26,8 @@ class Main {
                     tallerName: tallerName,
                     initDate: initDate,
                     finDate: finDate,
+                    placesDis: placesDis,
+                    duracionTa: duracionTa
                 };
 
                 let taller = new Taller(objTaller);
