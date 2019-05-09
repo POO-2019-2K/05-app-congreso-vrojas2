@@ -47,7 +47,7 @@ export default class Registros {
         this._talleres.push(objTaller);
         }
 
-    addEmployee(taller) {
+    addTaller(taller) {
         this._showInTable(taller);
         localStorage.setItem("talleres", JSON.stringify(this._talleres));
         //console.log(localStorage.getItem("talleres"));

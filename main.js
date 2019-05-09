@@ -32,7 +32,44 @@ class Main {
 
                 let taller = new Taller(objTaller);
 
-                registros.addEmployee(taller);
+                registros.addTaller(taller);
+            }
+    
+            form.classList.add("was-validated");
+        });
+    }
+}
+let m = new Main();
+
+
+import RegistrosPar from "./RegistrosPar.js";
+import Participants from "./Participantes.js";
+
+class Main2 {
+    constructor() {
+        let registrosPar = new RegistrosPar(document.querySelector("#regisParti"));
+
+        document.querySelector("#btnAddPar").addEventListener("click", () => {
+            let form = document.querySelector("#form");
+
+            if(form.checkValidity() === true) {
+                let partName = document.querySelector("#partName").value;
+                let email = document.querySelector("#email").value;
+                let sBirthday = document.querySelector("#birthday").value;
+                
+                sBirthday = sBirthday.split("-");
+
+                let birthday = new Date(sBirthday[0], sBirthday[1]-1, sBirthday[2]);
+
+                let objParticipants = {
+                    partName: partName,
+                    birthday: birthday,
+                    email: email,
+                };
+
+                let participants = new Participants(objParticipants);
+
+                registrosPar.addParticipante(participants);
             }
     
             form.classList.add("was-validated");
@@ -40,4 +77,4 @@ class Main {
     }
 }
 
-let m = new Main();
+let m2 = new Main2();
