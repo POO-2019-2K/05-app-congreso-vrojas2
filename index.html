@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" type="text/css" href="taller.css" />
   </head>
-  <body>
+  <body id="body">
     <div class="jumbotron">
       <h1>Registro</h1>
     </div>
@@ -88,16 +88,24 @@
                     type="number"
                     class="form-control"
                     id="duracionTa"
-                    placeholder="45 hrs"
+                    placeholder="2 hrs"
                     required
                   />
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
-                <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 100%">
+              </form>
+              <form id="form" class="col-1 needs-validation" novalidate></form>
+              <form id="form" class="col-5 needs-validation" novalidate>
+                 <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 100%">
                   Agregar
                 </button>
               </form>
+              <form id="form" class="col-6 needs-validation" novalidate>
+                <button id="btnAddPa" type="button" class="btn btn-primary" style="width: 100%">
+                  Agregar Participantes
+               </button>
+             </form>
           </div>
         </div>
         <!-- Tabla talleres -->

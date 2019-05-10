@@ -4,6 +4,7 @@ export default class Registros {
   constructor(tableregisTaller) {
     this._tableregisTaller = tableregisTaller;
     this._talleres = [];
+    this._body = body;
     //localStorage.removeItem("talleres");
     this._initTables();
   }
@@ -18,6 +19,7 @@ export default class Registros {
         taller.finDate = new Date(taller.finDate);
         this._showInTable(new Taller(taller));
 
+        
         });
     }
 

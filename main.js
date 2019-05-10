@@ -4,6 +4,7 @@ import Taller from "./Taller.js";
 class Main {
     constructor() {
         let registros = new Registros(document.querySelector("#regisTaller"));
+        var body = document.querySelector('#body');
 
         document.querySelector("#btnAddTa").addEventListener("click", () => {
             let form = document.querySelector("#form");
@@ -37,7 +38,27 @@ class Main {
     
             form.classList.add("was-validated");
         });
+
+        document.querySelector("#btnAddPa").addEventListener("click", () => {
+            let divNegro = document.createElement('div');
+            divNegro.classList = "divNegro";
+            body.appendChild(divNegro);
+
+            let divBlanco = document.createElement('div');
+            divBlanco.classList = "divBlanco";
+            body.appendChild(divBlanco);
+
+            let inputName = document.createElement("input");
+            inputName.type = "text";
+            inputName.classList = "form-control-md border inputFormDynamic col-m-10 ml-m4";
+            inputName.id = "inputName";
+            divBlanco.appendChild(inputName);
+
+
+
+        });
     }
+
 }
 let m = new Main();
 

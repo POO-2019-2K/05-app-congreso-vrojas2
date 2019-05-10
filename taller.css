@@ -10,4 +10,25 @@
 .jumbotron {
     background-color: black;
     color: #24F311;
-  }
+    /*position: fixed;*/
+
+}
+
+.divNegro {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.582);
+}
+
+.divBlanco {
+    position: fixed;
+    top:50px;
+    left: 500px;
+    width: 25%;
+    height: 70%;
+    background-color: rgb(255,255,255);
+    border-radius: 30px;
+}
