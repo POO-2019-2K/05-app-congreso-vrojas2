@@ -40,6 +40,7 @@ class Main {
         });
 
         document.querySelector("#btnAddPa").addEventListener("click", () => {
+
             let divNegro = document.createElement('div');
             divNegro.classList = "divNegro";
             body.appendChild(divNegro);
@@ -48,54 +49,74 @@ class Main {
             divBlanco.classList = "divBlanco";
             body.appendChild(divBlanco);
 
+            let labelTitle = document.createElement("label");
+            labelTitle.classList = "controlLabelTitle";
+            labelTitle.innerText = "Registro de Participantes";
+            divBlanco.appendChild(labelTitle);
+            
+            let labelName = document.createElement("label");
+            labelName.classList = "controlLabelName";
+            labelName.innerText = "Nombre del participante";
+            divBlanco.appendChild(labelName);
+
             let inputName = document.createElement("input");
             inputName.type = "text";
-            inputName.classList = "form-control-md border inputFormDynamic col-m-10 ml-m4";
+            inputName.classList = "form-control-md controlInput";
             inputName.id = "inputName";
+            inputName.placeholder= "Juan Perez";
             divBlanco.appendChild(inputName);
+           
+            let labelEmail = document.createElement("label");
+            labelEmail.classList = "controlLabel marginToplabel1";
+            labelEmail.innerText = "Correo electronico";
+            divBlanco.appendChild(labelEmail);
 
+            let inputEmail = document.createElement("input");
+            inputEmail.type = "email";
+            inputEmail.classList = "form-control-md controlInput";
+            inputEmail.id = "inputEmail";
+            inputEmail.placeholder= "juanperez@gmail.com";
+            divBlanco.appendChild(inputEmail);
+            
+            let labelBirthday = document.createElement("label");
+            labelBirthday.classList = "controlLabel marginToplabel";
+            labelBirthday.innerText = "Fecha de Nacimiento";
+            divBlanco.appendChild(labelBirthday);
+            
+            let inputBirthday = document.createElement("input");
+            inputBirthday.type = "date";
+            inputBirthday.classList = "form-control-md controlInput";
+            inputBirthday.id = "inputBirthday";
+            divBlanco.appendChild(inputBirthday);
 
+            let btnAdd = document.createElement("input");
+            btnAdd.type = "button";
+            btnAdd.value = "Registar";
+            btnAdd.className = "btn-add-part";
+            divBlanco.appendChild(btnAdd);
+            btnAdd.addEventListener("click", () => {
+
+                let partName = document.getElementById("inputName").value;
+                let partcorreo = document.getElementById("inputEmail").value;
+                let partbirthday = document.getElementById("inputBirthday").value;
+    
+                this._body.removeChild(divBlack);
+                this._body.removeChild(divBlanco);
+    
+                let objParticipante = {
+                    partName: partName,
+                    email: partcorreo,
+                    birthday: partbirthday,
+                    id: taller.id
+                }
+    
+                let participante = new Participant(objParticipante);
+    
+                this._addParticipante(taller, participante, tblBody)
+            });
 
         });
     }
 
 }
 let m = new Main();
-
-
-import RegistrosPar from "./RegistrosPar.js";
-import Participants from "./Participantes.js";
-
-class Main2 {
-    constructor() {
-        let registrosPar = new RegistrosPar(document.querySelector("#regisParti"));
-
-        document.querySelector("#btnAddPar").addEventListener("click", () => {
-            let form = document.querySelector("#form");
-
-            if(form.checkValidity() === true) {
-                let partName = document.querySelector("#partName").value;
-                let email = document.querySelector("#email").value;
-                let sBirthday = document.querySelector("#birthday").value;
-                
-                sBirthday = sBirthday.split("-");
-
-                let birthday = new Date(sBirthday[0], sBirthday[1]-1, sBirthday[2]);
-
-                let objParticipants = {
-                    partName: partName,
-                    birthday: birthday,
-                    email: email,
-                };
-
-                let participants = new Participants(objParticipants);
-
-                registrosPar.addParticipante(participants);
-            }
-    
-            form.classList.add("was-validated");
-        });
-    }
-}
-
-let m2 = new Main2();

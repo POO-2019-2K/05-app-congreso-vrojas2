@@ -25,10 +25,56 @@
 
 .divBlanco {
     position: fixed;
-    top:50px;
-    left: 500px;
+    top:14%;
+    left: 38%;
     width: 25%;
     height: 70%;
-    background-color: rgb(255,255,255);
+    background-color: #878987;
     border-radius: 30px;
+}
+
+.controlLabelTitle {
+    display: inline-block;
+    color:#6AF3DF;
+    padding-left: 19%;
+    font-size: 160%;
+    padding-top: 10px;
+    margin-top: 5%;
+} 
+
+.controlLabelName {
+    display: inline-block;
+    color:#6AF3DF;
+    padding-left: 10%;
+    font-size: 130%;
+    padding-top: 10px;
+    margin-top: 9%;
+}
+
+.controlLabel {
+    display: inline-block;
+    color: #6AF3DF;
+    padding-left: 10%;
+    font-size: 130%;
+    padding-top: 10px;
+    margin-top: 13%;
+}
+
+.controlInput {
+    width: 80%;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+
+.btn-add-part {
+    border-radius: 30px;
+    background-color: rgb(70, 209, 188);
+    border: none;
+    color: white;
+    font-size: 130%;
+    width: 25%;
+    margin-left: 36%;
+    margin-top: 24%;
 }

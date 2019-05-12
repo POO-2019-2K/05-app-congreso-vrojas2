@@ -18,8 +18,7 @@ export default class Registros {
         taller.initDate = new Date(taller.initDate);
         taller.finDate = new Date(taller.finDate);
         this._showInTable(new Taller(taller));
-
-        
+      
         });
     }
 
