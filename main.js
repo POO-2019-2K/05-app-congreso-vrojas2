@@ -61,7 +61,7 @@ class Main {
 
             let inputName = document.createElement("input");
             inputName.type = "text";
-            inputName.classList = "form-control-md controlInput";
+            inputName.classList = "form-control-md controlInput needs-validation";
             inputName.id = "inputName";
             inputName.placeholder= "Juan Perez";
             divBlanco.appendChild(inputName);
@@ -73,7 +73,7 @@ class Main {
 
             let inputEmail = document.createElement("input");
             inputEmail.type = "email";
-            inputEmail.classList = "form-control-md controlInput";
+            inputEmail.classList = "form-control-md controlInput needs-validation";
             inputEmail.id = "inputEmail";
             inputEmail.placeholder= "juanperez@gmail.com";
             divBlanco.appendChild(inputEmail);
@@ -85,17 +85,17 @@ class Main {
             
             let inputBirthday = document.createElement("input");
             inputBirthday.type = "date";
-            inputBirthday.classList = "form-control-md controlInput";
+            inputBirthday.classList = "form-control-md controlInput needs-validation";
             inputBirthday.id = "inputBirthday";
             divBlanco.appendChild(inputBirthday);
 
             let btnAdd = document.createElement("input");
             btnAdd.type = "button";
             btnAdd.value = "Registar";
-            btnAdd.className = "btn-add-part";
+            btnAdd.className = "btnAddPrt";
             divBlanco.appendChild(btnAdd);
             btnAdd.addEventListener("click", () => {
-
+/*
                 let partName = document.getElementById("inputName").value;
                 let partcorreo = document.getElementById("inputEmail").value;
                 let partbirthday = document.getElementById("inputBirthday").value;
@@ -113,7 +113,34 @@ class Main {
                 let participante = new Participant(objParticipante);
     
                 this._addParticipante(taller, participante, tblBody)
+
+                
+                this._talleres.splice(index, 1, newObj);
+                localStorage.setItem('talleres', JSON.stringify(this._talleres));
+                this._body.removeChild(divBlack);
+                this._taller.innerHTML = " ";
+                this.initCards();
+
+                Swal.fire({
+                    title: 'Ready!',
+                    text: 'workshop successfully edited!',
+                    type: 'success',
+                    confirmButtonText: 'OK'
+                }) */
+
             });
+
+            let btnCancel = document.createElement("input");
+            btnCancel.type = "button";
+            btnCancel.value = "Cancelar";
+            btnCancel.className = "btnCancelPart";
+            divBlanco.appendChild(btnCancel);
+            btnCancel.addEventListener("click", () => {
+                this._body.removeChild(divBlack);
+                this._body.removeChild(divBlanco);
+            });
+
+            this._body.appendChild(divForm);
 
         });
     }

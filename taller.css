@@ -68,13 +68,24 @@
     margin-top: 1%;
 }
 
-.btn-add-part {
+.btnAddPrt {
     border-radius: 30px;
     background-color: rgb(70, 209, 188);
     border: none;
     color: white;
     font-size: 130%;
     width: 25%;
-    margin-left: 36%;
-    margin-top: 24%;
+    margin-left: 21%;
+    margin-top: 17%;
+}
+
+.btnCancelPart {
+    border-radius: 30px;
+    background-color: rgb(70, 209, 188);
+    border: none;
+    color: white;
+    font-size: 130%;
+    width: 25%;
+    margin-left: 7%;
+    margin-top: 17%;
 }

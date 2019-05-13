@@ -24,8 +24,8 @@
         <!-- Formulario talleres-->
         <div class="col-md-4 mb-5">
           <div class="row">
-            <form id="form" class="col-1 needs-validation" novalidate></form>
-            <form id="form" class="col-11 needs-validation" novalidate>
+            <div id="form" class="col-1 needs-validation" novalidate></div>
+            <div id="form" class="col-11 needs-validation" novalidate>
               <div class="form-group">
                 <label for="tallerName">Nombre del taller</label>
                 <input
@@ -38,9 +38,9 @@
                 <div class="valid-feedback">Correcto</div>
                 <div class="invalid-feedback">Incorrecto</div>
               </div>
-            </form>
-            <form id="form" class="col-1 needs-validation" novalidate></form>
-            <form id="form" class="col-5 needs-validation" novalidate>
+            </div>
+            <div id="form" class="col-1 needs-validation" novalidate></div>
+            <div id="form" class="col-5 needs-validation" novalidate>
               <div class="form-group">
                 <label for="initDate">Fecha de inicio</label>
                 <input
@@ -52,9 +52,9 @@
                 <div class="valid-feedback">Correcto</div>
                 <div class="invalid-feedback">Incorrecto</div>
               </div>
-            </form>
-            <form id="form" class="col-1 needs-validation" novalidate></form>
-            <form id="form" class="col-5 needs-validation" novalidate>
+            </div>
+            <div id="form" class="col-1 needs-validation" novalidate></div>
+            <div id="form" class="col-5 needs-validation" novalidate>
               <div class="form-group">
                   <label for="finDate">Fecha de término</label>
                   <input
@@ -66,9 +66,9 @@
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
-              </form>
-              <form id="form" class="col-1 needs-validation" novalidate></form>
-              <form id="form" class="col-11 needs-validation" novalidate>
+              </div>
+              <div id="form" class="col-1 needs-validation" novalidate></div>
+              <div id="form" class="col-11 needs-validation" novalidate>
                 <div class="form-group">
                   <label for="placesDis">Lugares disponibles</label>
                   <input
@@ -84,7 +84,7 @@
                 <div class="form-group">
                   <label for="duracionTa">Duración en horas</label>
                   <input
-                    type="number"
+                    type="number" 
                     class="form-control"
                     id="duracionTa"
                     placeholder="2 hrs"
@@ -93,18 +93,18 @@
                   <div class="valid-feedback">Correcto</div>
                   <div class="invalid-feedback">Incorrecto</div>
                 </div>
-              </form>
-              <form id="form" class="col-1 needs-validation" novalidate></form>
-              <form id="form" class="col-5 needs-validation" novalidate>
+              </div>
+              <div id="form" class="col-1 needs-validation" novalidate></div>
+              <div id="form" class="col-5 needs-validation" novalidate>
                  <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 100%">
                   Agregar
                 </button>
-              </form>
-              <form id="form" class="col-6 needs-validation" novalidate>
+              </div>
+              <div id="form" class="col-6 needs-validation" novalidate>
                 <button id="btnAddPa" type="button" class="btn btn-primary" style="width: 100%">
                   Agregar Participantes
                </button>
-             </form>
+             </div>
           </div>
         </div>
         <!-- Tabla talleres -->
@@ -117,6 +117,7 @@
                 <th>Fecha de término</th>
                 <th>Lugares disponibles</th>
                 <th>Duración</th>
+                <th>Participantes</th>
               </tr>
             </thead>
             <tbody></tbody>
