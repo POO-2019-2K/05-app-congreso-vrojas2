@@ -3,20 +3,11 @@ export default class Participante {
         this._partName = participant.partName;
         this._email = participant.email;
         this._birthday = participant.birthday;
+        this._id = participant.id;
         this._months = [
-            "Ene",
-            "Feb",
-            "Mar",
-            "Abr",
-            "May",
-            "Jun",
-            "Jul",
-            "Ago",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dic"
-          ];
+            "Ene", "Feb", "Mar", "Abr", "May",
+            "Jun", "Jul", "Ago", "Sep", "Oct",
+            "Nov", "Dic" ];
     }
 
     get partName() {

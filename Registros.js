@@ -118,7 +118,7 @@ export default class Registros {
                     id: taller.id
                 }
     
-                let participante = new Participant(objParticipante);
+                let participante = new Participante(objParticipante);
     
                 this._addParticipante(taller, participante, tblBody)
 

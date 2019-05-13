@@ -63,4 +63,12 @@ export default class Taller {
   
       return date;
     }
+
+    get participants() {
+      return this._participants;
+  }
+
+    get participants(participants) {
+      this._participants = participants;
+    }
 }
