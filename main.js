@@ -22,13 +22,17 @@ class Main {
                 let initDate = new Date(sInitDate[0], sInitDate[1]-1, sInitDate[2]);
                 let finDate = new Date(sFinDate[0], sFinDate[1]-1, sFinDate[2]);
 
+                let participantes = [];
+                let id = 0;
 
                 let objTaller = {
                     tallerName: tallerName,
                     initDate: initDate,
                     finDate: finDate,
                     placesDis: placesDis,
-                    duracionTa: duracionTa
+                    duracionTa: duracionTa,
+                    participantes: participantes,
+                    id: id
                 };
 
                 let taller = new Taller(objTaller);
@@ -38,8 +42,7 @@ class Main {
     
             form.classList.add("was-validated");
         });
-
     }
-
 }
+
 let m = new Main();
