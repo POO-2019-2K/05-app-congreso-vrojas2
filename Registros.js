@@ -55,6 +55,14 @@ export default class RegisTaller {
     }
 
     _addBtnAddParticipanteAndBtnShowParticipantes(row, taller) {
+        
+        row.insertCell(7);
+        row.cells[7].appendChild(btnAddParticipante);
+        row.insertCell(8);
+        row.cells[8].appendChild(btnShowParticipantes);
+        row.insertCell(9);
+        row.cells[9].appendChild(btnDeleteTaller);
+        
         let btnAddParticipante = document.createElement("input");
         btnAddParticipante.type = "button";
         btnAddParticipante.value = 'Añadir Participante';
@@ -81,12 +89,6 @@ export default class RegisTaller {
             this._deleteTaller(taller.ID);
         });
 
-        row.insertCell(7);
-        row.cells[7].appendChild(btnAddParticipante);
-        row.insertCell(8);
-        row.cells[8].appendChild(btnShowParticipantes);
-        row.insertCell(9);
-        row.cells[9].appendChild(btnDeleteTaller);
         this._tablePart._actualizar(taller.ID);
     }
 
@@ -106,7 +108,7 @@ export default class RegisTaller {
                     swal.fire({
                         type: 'warning',
                         title: 'Advertencia',
-                        text: 'No se puede eliminar el taller porque hay participantes incritos'
+                        text: 'No se puede eliminar el taller porque hay participantes inscritos'
                     })
                 }
                 return;
@@ -114,10 +116,34 @@ export default class RegisTaller {
         });
     }
 
+    isPlacesDis(idTaller) {
+        let isPlacesDis = false;
+        this._talleres.forEach((objTaller) => {
+            if (Number(objTaller.ID) == idTaller && objTaller.placesDis > objTaller.partRegist) {
+                isPlacesDis = true;
+                return;
+            }
+        });
+        return isPlacesDis;
+    }
 
+    _unicoEmail(idTaller, email) {
+        let isUniqueEmail = true;
+        this._talleres.forEach((objTaller) => {
+            if (Number(objTaller.ID) == idTaller) {
+                objTaller.participantes.forEach((objParticipante) => {
+                    if (objParticipante.email === email) {
+                        isUniqueEmail = false;
+                        return;
+                    }
+                });
+                return;
+            }
+        });
+        return isUniqueEmail;
+    }
 
-
-    _showInTable(taller) {
+    _showInTable() {
 
         //Buton Registro de Participantes
         let btnAddPa = document.createElement("input");
@@ -198,12 +224,11 @@ export default class RegisTaller {
                     id: taller.id
                 }
                     //console.log(objParticipante);
-
                     let participante = new Participantes(objParticipante);
                     console.log(participante);
 
                     this._addParticipant(taller, participante);
-                    
+                
                     Swal.fire({
                         title: 'Listo!',
                         text: 'Registrado',

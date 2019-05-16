@@ -7,7 +7,8 @@ export default class Main {
             this._talleres = JSON.parse(localStorage.getItem('talleres'));
         }
 
-        let regisTaller = new RegisTaller(document.querySelector('#regisTaller'), document.querySelector('#tablePart'), null);
+        let regisTaller = new RegisTaller(document.querySelector('#regisTaller'),
+        document.querySelector('#tablePart'), null);
 
         document.querySelector('#btnAddTa').addEventListener('click', () => {
             if (document.querySelector('#form').checkValidity()) {
@@ -38,7 +39,6 @@ export default class Main {
         let stringInitDate = new Date(document.querySelector('#initDate').value);
         stringInitDate = (stringInitDate.getDate() + 1) + '/' +
         (stringInitDate.getMonth() + 1) + '/' + stringInitDate.getFullYear();
-
         let stringFinDate = new Date(document.querySelector('#finDate').value);
         stringFinDate = (stringFinDate.getDate() + 1) + '/' +
         (stringFinDate.getMonth() + 1) + '/' + stringFinDate.getFullYear();
@@ -53,7 +53,6 @@ export default class Main {
             duracionTa: Number(document.querySelector('#duracionTa').value),
             participantes: new Array()
         }
-
         return objTaller;
     }
 
