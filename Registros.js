@@ -54,9 +54,7 @@ export default class RegisTaller {
         }
     }
 
-
     _addBtnAddParticipanteAndBtnShowParticipantes(row, taller) {
-        //Create buttons
         let btnAddParticipante = document.createElement("input");
         btnAddParticipante.type = "button";
         btnAddParticipante.value = 'Añadir Participante';
@@ -72,7 +70,7 @@ export default class RegisTaller {
         btnShowParticipantes.value = 'Ver participantes';
         btnShowParticipantes.className = 'btn btn-primary';
         btnShowParticipantes.addEventListener('click', () => {
-
+            this._tablePart._actualizar(taller.ID);
         });
 
         let btnDeleteTaller = document.createElement("input");
@@ -80,7 +78,7 @@ export default class RegisTaller {
         btnDeleteTaller.value = 'Eliminar';
         btnDeleteTaller.className = 'btn btn-danger';
         btnDeleteTaller.addEventListener('click', () => {
-
+            this._deleteTaller(taller.ID);
         });
 
         row.insertCell(7);
@@ -91,6 +89,33 @@ export default class RegisTaller {
         row.cells[9].appendChild(btnDeleteTaller);
         this._tablePart._actualizar(taller.ID);
     }
+
+    _deleteTaller(ID) {
+        this._actualizarArrayTaller();
+        this._talleres.forEach((objTaller, indexTaller) => {
+            if (objTaller.ID === ID) {
+                if (objTaller.partRegist === 0) {
+                    this._talleres.splice(indexTaller, 1);
+                    localStorage.setItem('talleres', JSON.stringify(this._talleres));
+                    this._actualizar(null);
+                    swal.fire({
+                        type: 'success',
+                        title: 'Taller eliminado',
+                    })
+                } else {
+                    swal.fire({
+                        type: 'warning',
+                        title: 'Advertencia',
+                        text: 'No se puede eliminar el taller porque hay participantes incritos'
+                    })
+                }
+                return;
+            }
+        });
+    }
+
+
+
 
     _showInTable(taller) {
 
@@ -202,18 +227,6 @@ export default class RegisTaller {
         //Fin Form Resgistro de participantes
         });
         //Fin Buton Registro de Participantes
-
-        // Buton Eliminar Taller
-        let btnDelete = document.createElement("input");
-        btnDelete.type = "button";
-        btnDelete.value = "Eliminar";
-        btnDelete.className = "btn btn-danger";
-        btnDelete.addEventListener("click", () => {
-            //tblBody.removeChild(row);
-        });
-        //Fin Buton Eliminar Taller
-
-
     }
     //Fin metodo _showInTable
 
