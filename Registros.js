@@ -45,7 +45,7 @@ export default class RegisTaller {
         cell.innerHTML = objTaller.partRegist;
         cell = row.insertCell(6);
         cell.innerHTML = objTaller.duracionTa;
-        this._addBtnAddParticipanteAndBtnShowParticipantes(row, objTaller);
+        this._btnAddandbtnShow(row, objTaller);
     }
 
     _actualizarArrayTalleres() {
@@ -54,14 +54,7 @@ export default class RegisTaller {
         }
     }
 
-    _addBtnAddParticipanteAndBtnShowParticipantes(row, taller) {
-        
-        row.insertCell(7);
-        row.cells[7].appendChild(btnAddParticipante);
-        row.insertCell(8);
-        row.cells[8].appendChild(btnShowParticipantes);
-        row.insertCell(9);
-        row.cells[9].appendChild(btnDeleteTaller);
+    _btnAddandbtnShow(row, taller) {
         
         let btnAddParticipante = document.createElement("input");
         btnAddParticipante.type = "button";
@@ -89,6 +82,12 @@ export default class RegisTaller {
             this._deleteTaller(taller.ID);
         });
 
+        row.insertCell(7);
+        row.cells[7].appendChild(btnAddParticipante);
+        row.insertCell(8);
+        row.cells[8].appendChild(btnShowParticipantes);
+        row.insertCell(9);
+        row.cells[9].appendChild(btnDeleteTaller);
         this._tablePart._actualizar(taller.ID);
     }
 
@@ -108,7 +107,7 @@ export default class RegisTaller {
                     swal.fire({
                         type: 'warning',
                         title: 'Advertencia',
-                        text: 'No se puede eliminar el taller porque hay participantes inscritos'
+                        text: 'Error al eliminar, contiene participantes inscritos'
                     })
                 }
                 return;
@@ -143,8 +142,61 @@ export default class RegisTaller {
         return isUniqueEmail;
     }
 
-    _showInTable() {
+    addParticipante() {
+        if (document.querySelector('#formMember').checkValidity()) {
+            this._actualizarArrayTaller();
+            let ID = Number(localStorage.getItem('tallerActive'));
+            if (this._unicoEmail(ID, document.querySelector('#email').value)) {
+                if (this._isPlacesDis(ID)) {
+                    let objParticipante = {
+                        name: document.querySelector('#name').value,
+                        email: document.querySelector('#email').value,
+                        birthday: document.querySelector('#birthday').value
+                    }
+                    let taller;
+                    this._talleres.forEach((objTaller) => {
+                        if (objTaller.ID === ID) {
+                            taller = objTaller;
+                        }
+                    });
+                    let arrayParticipantes = new Array();
+                    arrayParticipantes = taller.participantes;
+                    arrayParticipantes.push(objParticipante);
+                    taller.participantes = arrayParticipantes;
+                    taller.partRegist++;
+                    this._talleres.forEach((objTaller) => {
+                        if (objTaller.ID === taller.ID) {
+                            objTaller = taller;
+                            return;
+                        }
+                    });
+                    localStorage.setItem('talleres', JSON.stringify(this._talleres));
+                    this._actualizar(null);
+                    this._tablePart._actualizar(ID);
+                } else {
+                    swal.fire({
+                        type: 'warning',
+                        title: 'Advertencia',
+                        text: 'Curso sin cupo'
+                    })
+                }
+            } else {
+                swal.fire({
+                    type: 'warning',
+                    title: 'Advertencia',
+                    text: 'Email ya registrado'
+                })
+            }
+        } else {
+            swal.fire({
+                type: 'warning',
+                title: 'Advertencia',
+                text: 'Datos incompletos'
+            })
+        }
+    }
 
+    _btnAddPa() {
         //Buton Registro de Participantes
         let btnAddPa = document.createElement("input");
         btnAddPa.type = "button";

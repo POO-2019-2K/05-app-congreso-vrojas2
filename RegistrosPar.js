@@ -46,4 +46,32 @@ export default class TablePart {
         });
     }
 
+    _deleteParticipante(idTaller, email) {
+        this._actualizarArrayTalleres();
+        let indexParticipante = -1;
+        this._talleres.forEach((objTaller, indexTaller) => {
+            if (objTaller.ID === idTaller) {
+                objTaller.participantes.forEach((objParticipante, index) => {
+                    if (objParticipante.email === email) {
+                        indexParticipante = index;
+                        return;
+                    }
+                });
+                objTaller.partRegist--;
+                objTaller.participantes.splice(indexParticipante, 1);
+                this._talleres.splice(indexTaller, 1, objTaller);
+                return;
+            }
+        });
+        localStorage.setItem('talleres', JSON.stringify(this._talleres));
+        this._regisTaller._actualizar(idTaller);
+    }
+
+    _actualizar(idTaller) {
+        for (let i = this._table.rows.length - 1; i > 1; i--) {
+            this._table.deleteRow(i);
+        }
+        this.initTable(idTaller);
+    }
+
 }
