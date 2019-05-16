@@ -1,17 +1,24 @@
-/*.cincuenta1 {
-    width: 0%;
-    margin-left: 8px;
+body{
+    height: 1000px;
+    background-color: peru
 }
 
-#d {
-    width: 50%;
-}*/
-
 .jumbotron {
-    background-color: black;
-    color: #24F311;
+    background-color: rgb(89, 226, 162);
+    color: white;
     /*position: fixed;*/
+}
 
+form{
+    margin: 5px;
+}
+
+th{
+    text-align: center;
+}
+
+tr{
+    text-align: center;
 }
 
 .divNegro {
@@ -36,7 +43,7 @@
 .controlLabelTitle {
     display: inline-block;
     color:#6AF3DF;
-    padding-left: 19%;
+    padding-left: 32%;
     font-size: 160%;
     padding-top: 10px;
     margin-top: 5%;
@@ -129,10 +136,7 @@
     margin-top: 2%;
 }
 
-.th-h {
-    width: 26%;
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-    margin-left: 8%;
-
+body{
+    height: 1000px;
+    background-color: rgb(70, 209, 188);
 }
