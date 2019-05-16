@@ -1,48 +1,43 @@
-import Registros from "./Registros.js";
-import Taller from "./Taller.js";
+import RegisTaller from './Registros.js';
 
-class Main {
+export default class Main {
     constructor() {
-        let registros = new Registros(document.querySelector("#regisTaller"));
-        var body = document.querySelector('#body');
+        this._talleres = new Array();
+        if (localStorage.getItem('talleres') != null) {
+            this._talleres = JSON.parse(localStorage.getItem('talleres'));
+        }
 
-        document.querySelector("#btnAddTa").addEventListener("click", () => {
-            let form = document.querySelector("#form");
+        let regisTaller = new RegisTaller(document.querySelector('#regisTaller'), document.querySelector('#tablePart'), null);
 
-            if(form.checkValidity() === true) {
-                let tallerName = document.querySelector("#tallerName").value;
-                let sInitDate = document.querySelector("#initDate").value;
-                let sFinDate = document.querySelector("#finDate").value;
-                let placesDis = document.querySelector("#placesDis").value;
-                let duracionTa = document.querySelector("#duracionTa").value;
-                
-                sInitDate = sInitDate.split("-");
-                sFinDate = sFinDate.split("-");
-
-                let initDate = new Date(sInitDate[0], sInitDate[1]-1, sInitDate[2]);
-                let finDate = new Date(sFinDate[0], sFinDate[1]-1, sFinDate[2]);
-
-                let participantes = [];
-                let id = 0;
-
-                let objTaller = {
-                    tallerName: tallerName,
-                    initDate: initDate,
-                    finDate: finDate,
-                    placesDis: placesDis,
-                    duracionTa: duracionTa,
-                    participantes: participantes,
-                    id: id
-                };
-
-                let taller = new Taller(objTaller);
-
-                registros.addTaller(taller);
-            }
-    
-            form.classList.add("was-validated");
+        document.querySelector('#btnAddTa').addEventListener('click', () => {
+                let objTaller = this._crearObjTaller();
+                this._talleres.push(objTaller);
+                localStorage.setItem('talleres', JSON.stringify(this._talleres));
+                regisTaller.addTaller(objTaller);
         });
     }
-}
 
-let m = new Main();
+    //Fin constructor
+    _crearObjTaller() {
+        let stringInitDate = new Date(document.querySelector('#initDate').value);
+        stringInitDate = (stringInitDate.getDate() + 1) + '/' +
+        (stringInitDate.getMonth() + 1) + '/' + stringInitDate.getFullYear();
+        let stringFinDate = new Date(document.querySelector('#finDate').value);
+        stringFinDate = (stringFinDate.getDate() + 1) + '/' +
+        (stringFinDate.getMonth() + 1) + '/' + stringFinDate.getFullYear();
+
+        let objTaller = {
+            ID: Number(document.querySelector('#idTaller').value),
+            name: document.querySelector('#tallerName').value,
+            stringInitDate: stringInitDate,
+            stringFinDate: stringFinDate,
+            placesDis: Number(document.querySelector('#placesDis').value),
+            partRegist: 0,
+            duracionTa: Number(document.querySelector('#duracionTa').value),
+            participantes: new Array()
+        }
+        return objTaller;
+    }
+    //Fin _crearObjTaller
+}
+let main = new Main();

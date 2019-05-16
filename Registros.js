@@ -1,31 +1,57 @@
-import Taller from "./Taller.js";
-import Participantes from "./Participantes.js";
+import TablePart from './RegistrosPar.js';
 
-export default class Registros {
-  constructor(tableregisTaller) {
-    this._tableregisTaller = tableregisTaller;
-    this._body = body;
-    this._id = 0;
-    //localStorage.removeItem("talleres");
-    this._initTables();
-    this._talleres = [];
-    this._participant = new Array();
-  }
-
-
-    _initTables() {
-        let lsTalleres = JSON.parse(localStorage.getItem("talleres"));
-        console.log(lsTalleres);
-
-        if(lsTalleres === null){
-            return;
-        }
-        lsTalleres.forEach((taller, index) => {
-            taller.initDate = new Date(taller.initDate);
-            taller.finDate = new Date(taller.finDate);
-            this._showInTable(new Taller(taller));
-        });
+export default class RegisTaller {
+    constructor(regisTaller, tablePart, idTallerToShowItsParticipantes) {
+        this._table = regisTaller;
+        this._talleres = new Array();
+        this._tablePart = new TablePart(tablePart, this);
+        //localStorage.removeItem("talleres");
+        this._actualizar(idTallerToShowItsParticipantes);
     }
+
+
+    _actualizar(idTallerToShowItsParticipantes) {
+        for (let i = this._table.rows.length - 1; i > 1; i--) {
+            this._table.deleteRow(i);
+        }
+        this._actualizarArrayTalleres();
+        this._talleres.forEach((objTaller) => {
+            this.addTaller(objTaller);
+        });
+        if (localStorage.getItem('talleres') != null && this._talleres.length > 0) {
+            if (idTallerToShowItsParticipantes === null) {
+                this._tablePart._actualizar(this._talleres[0].ID);
+            } else {
+                this._tablePart._actualizar(idTallerToShowItsParticipantes);
+            }
+        }
+    }
+
+    addTaller(objTaller) {
+        let row = this._table.insertRow(-1);
+        let cell = row.insertCell(0);
+        cell.innerHTML = objTaller.ID;
+        cell = row.insertCell(1);
+        cell.innerHTML = objTaller.name;
+        cell = row.insertCell(2);
+        cell.innerHTML = objTaller.stringInitDate;
+        cell = row.insertCell(3);
+        cell.innerHTML = objTaller.stringFinDate;
+        cell = row.insertCell(4);
+        cell.innerHTML = objTaller.placesDis;
+        cell = row.insertCell(5);
+        cell.innerHTML = objTaller.partRegist;
+        cell = row.insertCell(6);
+        cell.innerHTML = objTaller.duracionTa;
+        this._addBtnAddParticipanteAndBtnShowParticipantes(row, objTaller);
+    }
+    
+    _actualizarArrayTalleres() {
+        if (localStorage.getItem('talleres') != null) {
+            this._talleres = JSON.parse(localStorage.getItem('talleres'));
+        }
+    }
+
 
     _addParticipant(taller, participante) {
         participante.id = taller.id;
