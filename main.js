@@ -11,14 +11,10 @@ export default class Main {
 
         document.querySelector('#btnAddTa').addEventListener('click', () => {
             if (document.querySelector('#form').checkValidity()) {
-                //The ID already exist?                
                 if (!(this._IDRegister(Number(document.querySelector('#idTaller').value)))) {
-                    //Create object
                     let objTaller = this._crearObjTaller();
-                    //Add and save in LocalStorange
                     this._talleres.push(objTaller);
                     localStorage.setItem('talleres', JSON.stringify(this._talleres));
-                    //Show in table
                     regisTaller.addTaller(objTaller);
                 } else {
                     swal.fire({
@@ -39,7 +35,6 @@ export default class Main {
     }
 
     _crearObjTaller() {
-        //Format dates
         let stringInitDate = new Date(document.querySelector('#initDate').value);
         stringInitDate = (stringInitDate.getDate() + 1) + '/' +
         (stringInitDate.getMonth() + 1) + '/' + stringInitDate.getFullYear();
@@ -48,7 +43,6 @@ export default class Main {
         stringFinDate = (stringFinDate.getDate() + 1) + '/' +
         (stringFinDate.getMonth() + 1) + '/' + stringFinDate.getFullYear();
 
-        //Create object
         let objTaller = {
             ID: Number(document.querySelector('#idTaller').value),
             name: document.querySelector('#tallerName').value,
@@ -74,6 +68,4 @@ export default class Main {
         return IsIDRegister;
     }
 }
-
-
 let main = new Main();

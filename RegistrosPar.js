@@ -1,46 +1,49 @@
-import Participante from "./Participantes.js";
-
-export default class AgendaPar {
-    constructor(tablaAgendaPar) {
-        this._tablaAgendaPar = tablaAgendaPar;
-        this._participantes = [];
-        this._initTables();
-        
-       
+export default class TablePart {
+    constructor(table, regisTaller) {
+        this._table = table;
+        this._regisTaller = regisTaller;
+        this._talleres = new Array();
     }
 
-    _initTables() {
-        let participantes = JSON.parse(localStorage.getItem("participantes"));
-        if(participantes === null) {
-            return;
-        }
-        participantes.forEach((participant, index) => {
-        participant.fechaNac = new Date(participant.fechaNac);
-        this._showInTableP(new Participante(participant));
+    initTable(idTaller) {
+        this._actualizarArrayTalleres();
+        this._talleres.forEach((objTaller) => {
+            if (objTaller.ID === idTaller) {
+                if (objTaller.participantes != null) {
+                    objTaller.participantes.forEach((participante) => {
+                        this._addParticipante(objTaller.ID, participante);
+                    });
+                } else {
+                    return;
+                }
+            }
         });
     }
     
-    _showInTableP(participant) {
-        let row = this._tablaAgendaPar.insertRow(-1);
-
-        let cellPartName = row.insertCell(0);
-        let cellEmail = row.insertCell(1);
-        let cellBirthday= row.insertCell(2);
-
-        cellPartName.innerHTML = participant.partName;
-        cellEmail.innerHTML = participant.email;
-        cellBirthday.innerHTML = participant.getBirthday();
-
-        let objParticipante = {
-            partName: participant.partName,
-            email: participant.correo,
-            birthday: participant.birthday
+    _actualizarArrayTalleres() {
+        if (localStorage.getItem('talleres') != null) {
+            this._talleres = JSON.parse(localStorage.getItem('talleres'));
         }
-        this._participantes.push(objParticipante);
     }
-    addParticipante(participant) {
-        this._showInTableP(participant);
-        localStorage.setItem("participantes", JSON.stringify(this._participantes));
+    
+    _addParticipante(idTaller, participante) {
+        let row = this._table.insertRow(-1);
+        let cell = row.insertCell(0);
+        cell.innerHTML = participante.name;
+        cell = row.insertCell(1);
+        cell.innerHTML = participante.email;
+        cell = row.insertCell(2);
+        cell.innerHTML = participante.birthday;
+        cell = row.insertCell(3);
+        cell.appendChild(btnDeleteParticipante);
+
+        let btnDeleteParticipante = document.createElement("input");
+        btnDeleteParticipante.type = "button";
+        btnDeleteParticipante.value = 'Eliminar';
+        btnDeleteParticipante.className = 'btn btn-danger';
+        btnDeleteParticipante.addEventListener('click', () => {
+            this._deleteParticipante(idTaller, participante.email);
+        });
     }
 
 }

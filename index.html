@@ -1,132 +1,203 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Registro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="taller.css" />
-  </head>
-  <body id="body">
-    <div class="jumbotron">
-      <center>
-        <h1>Registro de talleres</h1>
-      </center>
-    </div>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>El congreso</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     <div class="container-fluid">
-      <div class="row">
-        <!-- Formulario talleres-->
-        <div class="col-md-4 mb-5">
-          <div class="row">
-              <form id="form" class="col-12 needs-validation" novalidate>
-                <div class="form-group">
-                  <label for="tallerName">Nombre del taller</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="tallerName"
-                    placeholder="Avengers"
-                    required
-                    />
-                  <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">Incorrecto</div>
-                </div>
-                <div class="form-group">
-                  <label for="initDate">Fecha de inicio</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="initDate"
-                    required
-                    />
-                  <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">Incorrecto</div>
-                </div>
-                <div class="form-group">
-                    <label for="finDate">Fecha de término</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="finDate"
-                      required
-                    />
-                    <div class="valid-feedback">Correcto</div>
-                    <div class="invalid-feedback">Incorrecto</div>
-                  </div>
-                  <div class="form-group">
-                    <label for="placesDis">Lugares disponibles</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="placesDis"
-                      placeholder="20"
-                      required
-                    />
-                    <div class="valid-feedback">Correcto</div>
-                    <div class="invalid-feedback">Incorrecto</div>
-                  </div>
-                  <div class="form-group">
-                    <label for="duracionTa">Duración en horas</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="duracionTa"
-                      placeholder="2 hrs"
-                      required
-                    />
-                    <div class="valid-feedback">Correcto</div>
-                    <div class="invalid-feedback">Incorrecto</div>
-                  </div>
-                   <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 100%">
-                    Agregar
-                  </button>
-                </form>
+        <div class="jumbotron">
+            <center>
+              <h1>Registro de talleres</h1>
+            </center>
           </div>
+        <div class="row col-12">
+            <div class="col-3">
+                <form id="form" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="idTaller">Id del Taller</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="idTaller"
+                          placeholder="1"
+                          required
+                        />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tallerName">Nombre del taller</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="tallerName"
+                          placeholder="Avengers"
+                          required
+                          />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="initDate">Fecha de inicio</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="initDate"
+                          required
+                          />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="finDate">Fecha de término</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="finDate"
+                          required
+                        />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="placesDis">Lugares disponibles</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="placesDis"
+                          placeholder="20"
+                          required
+                        />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duracionTa">Duración en horas</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="duracionTa"
+                          placeholder="2 hrs"
+                          required
+                        />
+                        <div class="valid-feedback">Correcto</div>
+                        <div class="invalid-feedback">Incorrecto</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button id="btnAddTa" type="button" class="btn btn-primary" style="width: 90%">
+                            Agregar
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-9">
+                <table id="regisTaller" class="table">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del taller</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha de término</th>
+                            <th>Cantidad de lugares</th>
+                            <th>Participantes registrados</th>
+                            <th>Duración (horas)</th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <!-- Tabla talleres -->
-        <div class="col-md-8">
-          <table id="regisTaller" class="table">
-            <thead>
-              <tr>
-                <th>Nombre del taller</th>
-                <th>Fecha de inicio</th>
-                <th>Fecha de término</th>
-                <th>Lugares disponibles</th>
-                <th>Duración</th>
-                <th>Participantes</th>
-                <th>Participantes</th>
-                <th>Taller</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+        <div class="row col-12">
+            <table id="tablePart" class="table">
+                <thead>
+                    <tr>
+                        <th colspan="4"><center>Participantes</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="second-head">Nombre</td>
+                        <td class="second-head">Correo electrónico</td>
+                        <td class="second-head">Fecha de nacimiento</td>
+                        <td class="second-head">Eliminar</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-      <!-- Row -->
+        <div class="modal fade" id="dialogo1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                          Registro de Participantes
+                        </h4>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal">
+                          X
+                        </button>
+                    </div>
+                    <form id="formMember">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input
+                              id="name"
+                              class="form-control"
+                              type="text"
+                              required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input
+                              id="email"
+                              class="form-control"
+                              type="email"
+                              required>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">Fecha de nacimiento</label>
+                            <input
+                              id="birthday"
+                              class="form-control"
+                              type="date"
+                              required>
+                        </div>
+                    </form>
+                  <div class="modal-footer row justify-content-center">
+                    <button
+                      id="btnRegister"
+                      type="button"
+                      class="btn btn-primary"
+                      data-dismiss="modal">
+                      Añadir
+                    </button>
+                  </div>
+              </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./main.js" type="module"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  </body>
+    <script src="Main.js" type="module"></script>
+</body>
+
 </html>
